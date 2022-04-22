@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CinemaPageComponent } from './pages/cinema-page/cinema-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 
@@ -9,8 +10,14 @@ const routes: Routes = [
     component: LoginPageComponent
   },
   {
-    path: 'dashboard',
-    component: DashboardPageComponent
+    path: '',
+    component: DashboardPageComponent,
+    children: [
+      {
+        path: "cinema",
+        component: CinemaPageComponent,
+      }
+    ]
   },
 ];
 

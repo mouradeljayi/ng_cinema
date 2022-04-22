@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit {
       'id': '1',
       "title": 'Cinemas',
       "icon" : 'fa-solid fa-hotel',
-      "url": '',
+      "url": 'cinema',
     },
     {
       'id': '2',
