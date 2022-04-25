@@ -1,0 +1,16 @@
+<div class="col p-3">
+    <div class="d-flex justify-content-between m-2">
+        <div>
+            Listes des films
+        </div>
+        <div>
+            <button (click)="newFilm()" class="btn btn-sm btn-success"><i class="fa-solid fa-plus"></i> Nouveau</button>
+        </div>
+    </div>
+    <div class="row m-2">
+        <app-film-detail></app-film-detail>
+    </div>
+    <div class="row m-2 text-center">
+        <app-pagination></app-pagination>
+    </div>
+</div>
