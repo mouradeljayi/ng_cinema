@@ -9,6 +9,8 @@ import { CategoryPageComponent } from './pages/categories/category-page/category
 import { AddCategoryComponent } from './pages/categories/add-category/add-category.component';
 import { FilmPageComponent } from './pages/films/film-page/film-page.component';
 import { AddFilmComponent } from './pages/films/add-film/add-film.component';
+import { VillePageComponent } from './pages/villes/ville-page/ville-page.component';
+import { AddVilleComponent } from './pages/villes/add-ville/add-ville.component';
 
 const routes: Routes = [
   {
@@ -46,7 +48,15 @@ const routes: Routes = [
       {
         path: "addfilm",
         component: AddFilmComponent,
-      },    
+      },
+      {
+        path: "villes",
+        component: VillePageComponent,
+      },
+      {
+        path: "addVille",
+        component: AddVilleComponent,
+      },        
     ]
   },
 ];

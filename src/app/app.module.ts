@@ -18,6 +18,11 @@ import { CategoryDetailComponent } from './components/category-detail/category-d
 import { FilmPageComponent } from './pages/films/film-page/film-page.component';
 import { AddFilmComponent } from './pages/films/add-film/add-film.component';
 import { FilmDetailComponent } from './components/film-detail/film-detail.component';
+import { VilleDetailComponent } from './components/ville-detail/ville-detail.component';
+import { VillePageComponent } from './pages/villes/ville-page/ville-page.component';
+import { AddVilleComponent } from './pages/villes/add-ville/add-ville.component';
+
+
 
 @NgModule({
   declarations: [
@@ -36,7 +41,10 @@ import { FilmDetailComponent } from './components/film-detail/film-detail.compon
     CategoryDetailComponent,
     FilmPageComponent,
     AddFilmComponent,
-    FilmDetailComponent
+    FilmDetailComponent,
+    VilleDetailComponent,
+    VillePageComponent,
+    AddVilleComponent,
   ],
   imports: [
     BrowserModule,
