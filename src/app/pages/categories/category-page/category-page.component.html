@@ -8,7 +8,26 @@
         </div>
     </div>
     <div class="row m-2">
-        <app-category-detail></app-category-detail>
+        <div class="row">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Nom</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let category of listCategories">
+                    <td>{{ category.name }}</td>
+                    <td class="d-flex justify-content-around">
+                       <button class="btn btn-sm btn-warning"><i class="fa-solid fa-edit"></i></button>
+                       <button class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        
     </div>
     <div class="row m-2 text-center">
         <app-pagination></app-pagination>
