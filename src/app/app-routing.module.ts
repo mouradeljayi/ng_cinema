@@ -40,7 +40,11 @@ const routes: Routes = [
       {
         path: "addcategory",
         component: AddCategoryComponent,
-      },    
+      },
+      {
+        path: "addcategory/:idCategory",
+        component: AddCategoryComponent,
+      },      
       {
         path: "films",
         component: FilmPageComponent,

@@ -17,11 +17,14 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <div *ngIf="errorMsg" class="alert alert-danger">
+                    {{ errorMsg }}
+                  </div>
                   <tr *ngFor="let category of listCategories">
                     <td>{{ category.name }}</td>
                     <td class="d-flex justify-content-around">
-                       <button class="btn btn-sm btn-warning"><i class="fa-solid fa-edit"></i></button>
-                       <button class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></button>
+                       <button (click)="editCategory(category.id)" class="btn btn-sm btn-warning"><i class="fa-solid fa-edit"></i></button>
+                       <button data-bs-toggle="modal" data-bs-target="#modalDeleteCategory" class="btn btn-sm btn-danger" (click)="selectCategory(category.id)"><i class="fa-solid fa-trash"></i></button>
                     </td>
                   </tr>
                 </tbody>
@@ -29,7 +32,28 @@
         </div>
         
     </div>
-    <div class="row m-2 text-center">
+    <div *ngIf="listCategories.length > 0" class="row m-2 text-center">
         <app-pagination></app-pagination>
     </div>
+
+<!-- Start Modal -->
+<div class="modal fade" id="modalDeleteCategory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Supprimer la catégorie</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Est vous sur de vouloir supprimer cette catégorie ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button (click)="deleteCategory()" type="button" data-bs-dismiss="modal" class="btn btn-danger">Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal -->
+
 </div>

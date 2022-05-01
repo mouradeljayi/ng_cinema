@@ -1,8 +1,14 @@
 <div class="col p-5">
-    <span>Ajouter une nouvelle catégorie</span>
-    <form class="mt-3">
+  <div *ngIf="errorMsg.length > 0" class="alert alert-danger">
+    <div *ngFor="let err of errorMsg">
+      <span>{{ err }}</span>
+    </div>
+  </div>
+    <span *ngIf="!category.id"> Ajouter une nouvelle catégorie</span>
+    <span *ngIf ="category.id"> Modifier une catégorie</span>
+    <form (ngSubmit)="saveCategory()" class="mt-3">
         <div class="form-group mb-2">
-          <input type="text" name="name" class="form-control" placeholder="Entrez le nom">
+          <input [(ngModel)]="category.name" type="text" name="name" class="form-control" placeholder="Entrez le nom">
         </div>
         <button type="submit" class="btn btn-primary">Enregistrez</button>
       </form>

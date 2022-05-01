@@ -21,6 +21,7 @@ import { FilmDetailComponent } from './components/film-detail/film-detail.compon
 import { VilleDetailComponent } from './components/ville-detail/ville-detail.component';
 import { VillePageComponent } from './pages/villes/ville-page/ville-page.component';
 import { AddVilleComponent } from './pages/villes/add-ville/add-ville.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -49,7 +50,8 @@ import { AddVilleComponent } from './pages/villes/add-ville/add-ville.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

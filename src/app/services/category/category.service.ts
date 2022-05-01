@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { CategorieDto } from 'src/app/models/category-dto';
+import { Observable, of, retry } from 'rxjs';
+import { Categorie } from 'src/app/models/category';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -13,7 +13,22 @@ export class CategoryService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getCategories():Observable<CategorieDto[]> {
-    return this.httpClient.get<CategorieDto[]>(`${this.localUrl}/categories/all`);
+  getCategories(): Observable<Categorie[]> {
+    return this.httpClient.get<Categorie[]>(`${this.localUrl}/categories/all`);
+  }
+
+  createCategory(categorie: Categorie): Observable<Categorie> {
+    return this.httpClient.post<Categorie>(`${this.localUrl}/categories/create`, categorie);
+  }
+
+  findById(idCategory: number): Observable<Categorie> {
+    return this.httpClient.get<Categorie>(`${this.localUrl}/categories/search/${idCategory}`);
+  }
+
+  deleteCategory(idCategory?: number): Observable<any> {
+    if(idCategory) {
+      return this.httpClient.delete<Categorie>(`${this.localUrl}/categories/delete/${idCategory}`);
+    }
+    return of();
   }
 }
