@@ -12,7 +12,6 @@ export class CategoryPageComponent implements OnInit {
 
   listCategories: Array<Categorie> = [];
   errorMsg = "";
-  //category: Categorie = new Categorie();
   selectedCategoryId? = -1;
 
   constructor(private router:Router, private categoryService: CategoryService) { }

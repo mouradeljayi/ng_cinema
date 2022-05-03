@@ -33,6 +33,7 @@ export class AddFilmComponent implements OnInit {
       this.filmService.findById(idFilm)
       .subscribe( film => {
         this.film = film;
+        this.categorie = this.film.categorie ? this.film.categorie : {};
       })
     }
   }

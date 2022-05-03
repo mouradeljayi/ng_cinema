@@ -54,6 +54,10 @@ const routes: Routes = [
         component: AddFilmComponent,
       },
       {
+        path: "addfilm/:idFilm",
+        component: AddFilmComponent,
+      },
+      {
         path: "villes",
         component: VillePageComponent,
       },

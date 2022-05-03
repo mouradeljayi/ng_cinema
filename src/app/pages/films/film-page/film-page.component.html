@@ -8,9 +8,58 @@
         </div>
     </div>
     <div class="row m-2">
-        <app-film-detail></app-film-detail>
+        <div class="row">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Titre</th>
+                    <th>Realisateur</th>
+                    <th>Date de sortie</th>
+                    <th>duree</th>
+                    <th>photo</th>
+                    <th>Catégories</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let film of listFilms">
+                    <td>{{ film.titre }}</td>
+                    <td>{{ film.realisateur }}</td>
+                    <td>{{ film.dateSortie | date }}</td>
+                    <td>{{ film.duree }}</td>
+                    <td>{{ film.photo }}</td>
+                    <td>{{ film.categorie?.name }}</td>
+                    <td class="d-flex justify-content-around">
+                       <button (click)="editFilm(film.id)" class="btn btn-sm btn-warning"><i class="fa-solid fa-edit"></i></button>
+                        <button data-bs-toggle="modal" data-bs-target="#modalDeleteFilm" (click)="selectFilm(film.id)" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
     </div>
     <div class="row m-2 text-center">
         <app-pagination></app-pagination>
     </div>
+
+    <!-- Start Modal -->
+<div class="modal fade" id="modalDeleteFilm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Supprimer la catégorie</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Est vous sur de vouloir supprimer ce film ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button (click)="deleteFilm()" type="button" data-bs-dismiss="modal" class="btn btn-danger">Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal -->
+
 </div>

@@ -13,16 +13,16 @@ export class FilmService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getCategories(): Observable<Film[]> {
+  getFilms(): Observable<Film[]> {
     return this.httpClient.get<Film[]>(`${this.localUrl}/films/all`);
   }
 
   createFilm(film: Film): Observable<Film> {
     return this.httpClient.post<Film>(`${this.localUrl}/films/create`, film);
   }
-
+  
   findById(idFilm: number): Observable<Film> {
-    return this.httpClient.get<Film>(`${this.localUrl}/films/search/${idFilm}`);
+    return this.httpClient.get<Film>(`${this.localUrl}/films/${idFilm}`);
   }
 
   deleteFilm(idFilm?: number): Observable<any> {

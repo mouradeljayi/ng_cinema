@@ -1,5 +1,6 @@
 <div class="col p-5">
-    <span>Ajouter un nouvel film</span>
+    <span *ngIf="!film.id"> Ajouter un nouvel film </span>
+    <span *ngIf ="film.id"> Modifier un film</span>
     <form (ngSubmit)="saveFilm()" class="mt-3">
         <div class="form-group mb-2">
           <input type="text"  [(ngModel)]="film.titre" name="titre" class="form-control" placeholder="Entrez le Titre">
