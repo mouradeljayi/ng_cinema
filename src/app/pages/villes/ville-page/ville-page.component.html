@@ -8,9 +8,53 @@
         </div>
     </div>
     <div class="row m-2">
-        <app-ville-detail></app-ville-detail>
+        <div class="row">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Nom</th>
+                    <th>Longitude</th>
+                    <th>Latitude</th>
+                    <th>Altitude</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let ville of listVilles">
+                    <td>{{ ville.name }}</td>
+                    <td>{{ ville.longitude }}</td>
+                    <td>{{ ville.latitude }}</td>
+                    <td>{{ ville.altitude }}</td>
+                    <td class="d-flex justify-content-around">
+                       <button (click)="editVille(ville.id)" class="btn btn-sm btn-warning"><i class="fa-solid fa-edit"></i></button>
+                        <button data-bs-toggle="modal" data-bs-target="#modalDeleteVille" (click)="selectVille(ville.id)" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
     </div>
     <div class="row m-2 text-center">
         <app-pagination></app-pagination>
     </div>
+
+     <!-- Start Modal -->
+<div class="modal fade" id="modalDeleteVille" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Supprimer la ville</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Est vous sur de vouloir supprimer cette ville ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button (click)="deleteVille()" type="button" data-bs-dismiss="modal" class="btn btn-danger">Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal -->
 </div>

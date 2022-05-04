@@ -64,6 +64,10 @@ const routes: Routes = [
       {
         path: "addVille",
         component: AddVilleComponent,
+      },   
+      {
+        path: "addVille/:idVille",
+        component: AddVilleComponent,
       },        
     ]
   },
