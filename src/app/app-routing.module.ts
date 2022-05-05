@@ -34,6 +34,10 @@ const routes: Routes = [
         component: AddCinemaComponent,
       },
       {
+        path: "addcinema/:idCinema",
+        component: AddCinemaComponent,
+      },
+      {
         path: "categories",
         component: CategoryPageComponent,
       },
